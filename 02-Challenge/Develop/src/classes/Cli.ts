@@ -10,12 +10,13 @@ class Cli {
   // TODO: update the vehicles property to accept Truck and Motorbike objects as well
   // TODO: You will need to use the Union operator to define additional types for the array
   // TODO: See the AbleToTow interface for an example of how to use the Union operator
-  vehicles: (Car)[];
+  vehicles:(Car | Truck | Motorbike)[]; 
   selectedVehicleVin: string | undefined;
   exit: boolean = false;
 
   // TODO: Update the constructor to accept Truck and Motorbike objects as well
-  constructor(vehicles: (Car)[]) {
+ 
+  constructor(vehicles: (Car | Truck | Motorbike)[]) {
     this.vehicles = vehicles;
   }
 
@@ -53,25 +54,27 @@ class Cli {
   }
 
   // method to create a vehicle
-  createVehicle(): void {
-    inquirer
-      .prompt([
-        {
-          type: 'list',
-          name: 'vehicleType',
-          message: 'Select a vehicle type',
-          // TODO: Update the choices array to include Truck and Motorbike
-          choices: ['Car'],
-        },
-      ])
-      .then((answers) => {
-        if (answers.vehicleType === 'Car') {
-          // create a car
-          this.createCar();
-        }
-        // TODO: add statements to create a truck or motorbike if the user selects the respective vehicle type
-      });
-  }
+      createVehicle(): void {
+        inquirer
+          .prompt([
+            {
+              type: 'list',
+              name: 'vehicleType',
+              message: 'Select a vehicle type',
+              choices: ['Car', 'Truck', 'Motorbike'], 
+            },
+          ])
+          .then((answers) => {
+            if (answers.vehicleType === 'Car') {
+              this.createCar();
+            } else if (answers.vehicleType === 'Truck') {
+              this.createTruck();
+            } else if (answers.vehicleType === 'Motorbike') {
+              this.createMotorbike();
+            }
+          }); 
+      }
+
 
   // method to create a car
   createCar(): void {
@@ -233,10 +236,25 @@ class Cli {
         },
       ])
       .then((answers) => {
+        const frontWheel = new Wheel(parseInt(answers.frontWheelDiameter), answers.frontWheelBrand);
+        const rearWheel = new Wheel(parseInt(answers.rearWheelDiameter), answers.rearWheelBrand);
         // TODO: Use the answers object to pass the required properties to the Motorbike constructor
+        const motorbike = new Motorbike (
+          Cli.generateVin(),
+          answers.color,
+          answers.make,
+          answers.model,
+          parseInt(answers.year),
+          parseInt(answers.weight),
+          parseInt(answers.topSpeed),
+          [frontWheel, rearWheel]
+        );
         // TODO: push the motorbike to the vehicles array
+        this.vehicles.push(motorbike); 
         // TODO: set the selectedVehicleVin to the vin of the motorbike
+        this.selectedVehicleVin = motorbike.vin;
         // TODO: perform actions on the motorbike
+        this.performActions()
       });
   }
 

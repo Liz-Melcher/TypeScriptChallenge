@@ -26,6 +26,8 @@ class Car extends Vehicle {
     wheels: Wheel[]
   ) {
     // Call the constructor of the parent class, Vehicle
+    // Liz code: super(make, model, year, weight, topSpeed);  Is this needed? 
+
     super();
 
     // Initialize properties of the Car class
@@ -39,6 +41,7 @@ class Car extends Vehicle {
     // Check if the wheels array has 4 elements
     // If not, create 4 new Wheel objects
     // Otherwise, use the provided wheels array
+
     if (wheels.length !== 4) {
       this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
     } else {
@@ -78,3 +81,5 @@ class Car extends Vehicle {
 
 // Export the Car class as the default export
 export default Car;
+
+
