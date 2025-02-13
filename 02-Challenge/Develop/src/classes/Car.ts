@@ -26,7 +26,6 @@ class Car extends Vehicle {
     wheels: Wheel[]
   ) {
     // Call the constructor of the parent class, Vehicle
-    // Liz code: super(make, model, year, weight, topSpeed);  Is this needed? 
 
     super();
 
