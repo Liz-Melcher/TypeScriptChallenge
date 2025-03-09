@@ -1,3 +1,27 @@
+Read Me:
+
+GitHub repository: https://github.com/Liz-Melcher/TypeScriptChallenge 
+Video Demonstration: https://youtu.be/ZrOsvzv63k8?si=m9-n3s-zCS82wrxy 
+
+Description: This is a command line application to "build" and "use" cars, motorcycles, and trucks.  Motorcycles can do things trucks and cars cannot.  Trucks can do things motorcycles and cars cannot. 
+
+Installation: 
+1. Install node (if not done already)
+2. Install dependencies (npm i)
+3. To start the CLI, use NPM run build as the command
+
+License: MIT license. 
+
+
+Contributing: For this project, some code was already complete.
+Src/Classes/Car.ts 
+Src/Classes/Vehicle.ts
+Src/Classes/Wheel.ts 
+Src/Interfaces/AbleToTow.ts
+Src/Interfaces/Driveable.ts 
+
+The original ReadMe for the assignment is below: 
+
 # 08 TypeScript and OOP: Vehicle Builder
 
 ## Your Task
