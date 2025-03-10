@@ -1,6 +1,6 @@
 Read Me:
 
-GitHub repository: https://github.com/Liz-Melcher/TypeScriptChallenge 
+GitHub repository: (https://github.com/Liz-Melcher/VehcileBuilder)
 Video Demonstration: https://youtu.be/ZrOsvzv63k8?si=m9-n3s-zCS82wrxy 
 
 Description: This is a command line application to "build" and "use" cars, motorcycles, and trucks.  Motorcycles can do things trucks and cars cannot.  Trucks can do things motorcycles and cars cannot. 
